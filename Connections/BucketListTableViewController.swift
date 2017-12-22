@@ -7,426 +7,322 @@
 //
 
 import UIKit
-import Crashlytics
-import Firebase
-//import FirebaseDatabase
-//import FirebaseAuth
+import FBSDKShareKit
+import FBSDKLoginKit
+
 
 class BucketListTableViewController: UITableViewController  {
-
-    var cellIsOpen : Bool = false
-    var PropertyList :[NSDictionary] = []
-    var myPropertyList :[NSArray] = []
-    var propertyIdTopass :String!
-    var PropertyBedroomsTopass :String!
-    var PropertyBathroomsTopass :String!
-    var vc : ListAndMapController!
-    var selectedIndices: [Int] = []
-    var propertyId : [String] = []
-    var likedPropData : Property?
-    var likedPropArray = [Property]()
-    var propData : Property?
-    var propArray = [Property]()
-    var action : String = ""
-    var convid : String = ""
-    var isSelected:Bool = false
-    var IS_FROM_AGENTAPP : Bool = false
-       
+    var facebookToken: String!
+    let userDefaults = UserDefaults.standard
+    var cache:NSCache<AnyObject, AnyObject>!
+    var task: URLSessionDownloadTask!
+    var session: URLSession!
     
-    var alertTitle : String = ""
-    var singleAlertTitle: String = "Move Property"
-    //var pluralAlertTitle: String = "Move Properties"
-    var alertMessage = " "
-    let releaseAlertMessage = "Are you sure that you would like to release this Property?"
-    //let pluralReleaseAlertMessage = "Are you sure that you would like to release these Properties?"
+    var theArticle = [Article]()
+    var theStory = [Article]()
     
-    let likeAlertMessage = "Are you sure that you would like to move this Property to the Liked group?"
-    //let pluralLikeAlertMessage = "Are you sure that you would like to move these Properties to the Liked group?"
-    
-    let declineAlertMessage = "Are you sure that you would like to move this Property to the Declined group?"
-    //let pluralDeclineAlertMessage = "Are you sure that you would like to move these Properties to the Declined group?"
-    
-    let sentProperty = "Are you sure that you would like to send this Property?"
-    //let pluralSentProperty = "Are you sure that you would like to send these Properties?"
-    
-    var reqShowingTitle: String = "Request a Showing"
-    let reqShowingMessage = "Are you sure that you would like to request a showing for this property and move it to Request Showing group?"
-
-    
-    var actionParm = ""
-    
-
-    
-    override func viewWillAppear(animated: Bool) {
+       override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: true)
-        ActivityIndicator.hideActivityIndicatorView(self.view)
-       // self.reloadData(action)
+       
+        //ActivityIndicator.hideActivityIndicatorView(self.view)
+      
         self.tableView.reloadData()
     
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bg")!)
+//        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bg")!)
         
+//        
 
         
         }
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: true)
-
-    }
+           }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       self.tableView.allowsMultipleSelectionDuringEditing = false
-        self.tableView.separatorColor = UIColor.clearColor()
-        self.tableView.allowsSelection = false
+        self.tableView.allowsMultipleSelectionDuringEditing = false
+        self.tableView.separatorColor = UIColor.clear
+        self.tableView.separatorStyle = .none
+        self.cache = NSCache()
+        session = URLSession.shared
+        task = URLSessionDownloadTask()
+        
+       // self.tableView.allowsSelection = false
+        
+        self.reloadData()
+        self.refreshControl?.addTarget(self, action: #selector(BucketListTableViewController.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
+    
            }
     
-    override func viewWillDisappear(animated: Bool) {
+  
+    func handleRefresh(refreshControl: UIRefreshControl) {
+         self.reloadData()
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
+    }
+    
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
            }
-    override func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
        
     }
     
-    func reloadData(action: String,  conversationid: String){
-        
-        self.action = action
-        self.convid = conversationid
-        if self.action == "" {
-            // ActivityIndicator.showActivityIndicatorView(self.view, text: "")
-            self.propArray = []
-            self.tableView.reloadData()
-            // ActivityIndicator.hideActivityIndicatorView(self.view)
-        }
-        else {
-            if let id = getLoginUserId(){
-                    ActivityIndicator.showActivityIndicatorView(self.view, text: "")
-                    WebService.sharedInstance.getBucketPropertes("\(id)", bucketType: self.action, conversationId: self.convid, success: { (json) -> Void in
-
-                        var conversation :Conversation?
-                        for conv in MessengerController.conversationArray {
-                            if conv.conversationid?.stringValue == self.convid {
-                                conversation = conv
-                                //property.additionalInfo = ["ClientName": conv.conversationname ?? ""]
-                                break
-                            }
-                        }
-                       print("the properties",json)
-                        ActivityIndicator.hideActivityIndicatorView(self.view)
+    func reloadData(){
+        self.facebookToken = userDefaults.object(forKey: "facebookToken") as? String
+         ABActivity.showActivityIndicator(self.view, text: "")
+        if self.facebookToken != nil {
+            
+            
+             if FBSDKAccessToken.current().hasGranted("publish_actions") {
+                
+                FBSDKGraphRequest.init(graphPath: "1809970652624352/feed?fields=place,message,likes,created_time,object_id,picture,full_picture,from", parameters: [:], httpMethod: "GET").start(completionHandler: { (connection, result, error) -> Void in
+                    if let error = error {
+                        print("Error: \(error)")
+                    } else {
+                        print ("result",result!)
                         
                         
-                       // print(json)
-                        
-                        if let StoredGroup = json as? NSArray {
-                            self.myPropertyList.append(StoredGroup)
-                            self.likedPropArray.removeAll()
-                            self.propArray.removeAll()
-                            
-                            var propArrayToBeSaveInLocal:[NSDictionary] = []
-                            
-                            for i in 0 ..< StoredGroup.count {
-                                 let sharedPropertyBucket = SharedPropertyBucket(JSON :StoredGroup[i])
-                                if let propJson = StoredGroup[i].objectForKey("property") as? NSDictionary{
-                                    self.PropertyList.append(propJson)
-                                    let property = Property(JSON: propJson)
-                                    self.likedPropData = property
-                                    self.likedPropArray.append(property)
-                                    self.propData = property
-                                    self.propArray.append(property)
-                                    propArrayToBeSaveInLocal.append(propJson)
-                                    self.propArray[i].additionalInfo = ["SharedPropertyId": sharedPropertyBucket.sharedPropertyId ?? "", "ClientName": conversation?.conversationname ?? ""]
-                                    self.propArray[i].statuschangedate = (sharedPropertyBucket.updateddate)!
-                                    if let sharedpropertymember = StoredGroup[i].objectForKey("sharedpropertymember") as? NSArray {
-                                        for j in 0..<sharedpropertymember.count {
-                                           // print ((sharedpropertymember[i].objectForKey("memberid") as? NSNumber)!)
-                                            if ("\((sharedpropertymember[j].objectForKey("memberid") as? NSNumber)!)" == id ) {
-                                                self.propArray[i].feedbackaction = ( "\((sharedpropertymember[j].objectForKey("feedbackaction") as? String) ?? "")")
-                                                self.propArray[i].feedbackcomments = ("\((sharedpropertymember[j].objectForKey("feedbackcomments") as? String) ?? "")")
-                                            }
-                                        }
-                                    }
+                        if let response = result as? NSDictionary{
+                          if let theData = response.object(forKey:"data") as? NSArray {
+                           
+                            self.theArticle.removeAll()
+                            self.theStory.removeAll()
+                            for resp in theData {
+                                if (resp as!NSDictionary).object(forKey: "message") != nil
+                                {
+                                let myresp = Article(JSON :resp as! NSDictionary)
+                                self.theArticle.append(myresp)
+                                }
+                                else {
+                                if (resp as!NSDictionary).object(forKey: "story") != nil
+                                {
+                                    let myresp = Article(JSON :resp as! NSDictionary)
+                                    self.theStory.append(myresp)
+                                }
                                 }
                             }
+                            //self.theArticle.append(Article(JSON :theData[0] as AnyObject))
                         }
-
-                       
-                        dispatch_async(dispatch_get_main_queue(), {
+                      
+                            //print ("theArticle",self.theArticle.count, self.theArticle[0].message as String!,self.theArticle[0].object_id as String!, self.theArticle[0].likeData!.count)
                             
-                            self.tableView.reloadData()
-                        })
-                       
-                        }, fail: { (error) in
-                   
-                            ActivityIndicator.hideActivityIndicatorView(self.view)
-                            Answers.logCustomEventWithName("Fail Get Property", customAttributes: ["fail" : "get"])
-                    })
+                          //  print ("theStory",self.theStory.count, self.theStory[0].story as String!)
+                            
+
+                            
+                            DispatchQueue.main.async( execute: {
+                                self.tableView.reloadData()
+                                
+                              
+
+                            })
+                         
+
+                        
+                    }
+                    }
+                })
+                
+                
+                
+                
+                
 
             }
+           
+            ABActivity.hideActivityIndicator(self.view)
+            
         }
-    }
+        else {
+            self.theArticle = []
+            self.tableView.reloadData()
+            ABActivity.hideActivityIndicator(self.view)
+        }
+            }
     
     
     
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return propArray.count
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.theArticle.count
+            //propArray.count
         
     }
+
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
-    {
-        return 307
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        self.performSegue(withIdentifier: "details", sender: self)
+        
         
     }
-    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+         return 150.0
     }
 //     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 //    print("don't do anything")
 //    }
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt IndexPath: IndexPath) -> UITableViewCell {
         //print("the action is:", self.action)
-        let cell = tableView.dequeueReusableCellWithIdentifier( "BucketListcell", forIndexPath: indexPath) as! BucketListcell
-        // cell.itemIndexPath = indexPath
+        let cell = tableView.dequeueReusableCell( withIdentifier: "BucketListcell", for: IndexPath) as! BucketListcell
         
-        let bgColorView = UIView()
-        //bgColorView.backgroundColor = UIColor.clearColor()
-        bgColorView.backgroundColor = UIColor(patternImage: UIImage(named: "bg")!)
-        cell.selectedBackgroundView = bgColorView
-
-
-        let numberFormatter = NSNumberFormatter()
-        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
-        if (propArray[indexPath.row].price != "") {
-            let price = " $\(numberFormatter.stringFromNumber(Int(propArray[indexPath.row].price))!)"
-            cell.price!.text = price
-            
-        }
-        else {
-            cell.price!.text = (" $ \(propArray[indexPath.row].price)")
-        }
+         cell.mainView.layer.masksToBounds = true
+//         cell.mainView.layer.shadowColor = UIColor.clear.cgColor
+//         cell.mainView.layer.shadowOpacity = 0.2
+//         cell.mainView.layer.shadowOffset = CGSize(width: 3, height: 3)
+//         cell.mainView.layer.shadowRadius = 05
+//        
+//         cell.mainView.layer.shadowPath = UIBezierPath(rect: cell.mainView.bounds).cgPath
+//         cell.mainView.layer.shouldRasterize = true
+//        
+          cell.mainView.layer.cornerRadius = 0
+          cell.mainView.layer.borderWidth = 1
+          cell.mainView.layer.borderColor = UIColor.gray.cgColor
         
-        cell.address!.text = (" \(propArray[indexPath.row].address)")
-    cell.city!.text = "\(propArray[indexPath.row].city), \(propArray[indexPath.row].state), \(propArray[indexPath.row].country)"
-       // cell.noteNumber.text = ""
         
+         //cell.itemIndexPath = IndexPath
+        
+//        let bgColorView = UIView()
+//        //bgColorView.backgroundColor = UIColor.clearColor()
+//        bgColorView.backgroundColor = UIColor(patternImage: UIImage(named: "bg")!)
+//        cell.selectedBackgroundView = bgColorView
 
         
-        if let imageUrl = NSURL(string: propArray[indexPath.row].photourl) {
-            cell.propertyImageview.setImageWithURL(imageUrl)
-        }
-    
-        cell.propertyImageview.addSubview(cell.price)
-        cell.propertyImageview.addSubview(cell.address)
-        cell.propertyImageview.addSubview(cell.city)
-        cell.propertyImageview.addSubview(cell.providerTitle)
-        cell.propertyImageview.addSubview(cell.providerName)
-        //cell.propertyImageview.addSubview(cell.noteNumber)
-        cell.propertyImageview.contentMode = UIViewContentMode.ScaleAspectFill
-       
+    cell.theText.text = self.theArticle[IndexPath.row].message
+    cell.name.text = ((self.theArticle[IndexPath.row].publisher! as NSDictionary).object(forKey:"name") as! String!)
+    cell.titleLbl.text = self.theArticle[IndexPath.row].articleTitle
+        
         //set the date format
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let formatter = NSDateFormatter()
-        formatter.dateStyle = NSDateFormatterStyle.LongStyle
-        //formatter.dateStyle = NSDateFormatterStyle.FullStyle
-        formatter.timeStyle = .NoStyle
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let formatter = DateFormatter()
+                formatter.dateStyle = DateFormatter.Style.medium
+                //formatter.dateStyle = NSDateFormatterStyle.FullStyle
+                formatter.timeStyle = .none
         
-        let date = dateFormatter.dateFromString(String(("\(propArray[indexPath.row].statuschangedate!)").characters.prefix(10)))
+                let date = dateFormatter.date(from: String(("\(self.theArticle[IndexPath.row].created_time!)").characters.prefix(10)))
         
-        print (("\(propArray[indexPath.row].statuschangedate!)"))
+                //print (("\(propArray[indexPath.row].statuschangedate!)"))
         
-        let dateString = formatter.stringFromDate(date!)
+                let dateString = formatter.string(from: date!)
         
-        cell.date.text = " \(dateString)"
-        
-        cell.backgroundColor = UIColor(patternImage: UIImage(named: "bg")!)
-        if propArray[indexPath.row].source != "listhub" {
-            cell.providerTitle?.text = " Property provided via"
-           cell.providerName?.text = "\(propArray[indexPath.row].source.capitalizedString)"
+                cell.dateUpload.text = " \(dateString)"
+        if (self.theArticle[IndexPath.row].likes) != nil{
+     cell.likes.text = "\(self.theArticle[IndexPath.row].likeData!.count)"
         }
-        else {
-            cell.providerTitle?.text = " Property provided via:"
-            cell.providerName?.text = " MyHomey"
-        }
-        if IS_FROM_AGENTAPP == true{
-        }
-        else {
-        
-        if self.action == "Liked"{
+        else{
+              cell.likes.text = "0"
             
-            cell.labelOne.text = "Share"
-            cell.imageOne.image = UIImage(named: "sendIcon")
-            cell.buttonOne.tag = 5
-           
-            cell.labelTwo.text = "Dislike"
-            cell.imageTwo.image = UIImage(named: "dislikeBtn")
-            cell.buttonTwo.tag = 6
-            }
-            
+        }
 
-        else if self.action == "Disliked" {
-            
-            
-            cell.labelOne.text = "Share"
-            cell.imageOne.image = UIImage(named: "sendIcon")
-            cell.buttonOne.tag = 5
-            
-            cell.labelTwo.text = "Like"
-            cell.imageTwo.image = UIImage(named: "likeBtn")
-            cell.buttonTwo.tag = 7
-            
-            }
-            
-        else if self.action == "Reviewed" {
-            }
-        if action == "Reqshowing" {
-       
-            cell.labelOne.text = "Remind Agent"
-            cell.imageOne.image = UIImage(named: "listingProvider")
-            cell.buttonOne.tag = 8
-            
-            cell.labelTwo.text = "No longer Interested"
-            cell.imageTwo.image = UIImage(named: "listingProvider")
-            cell.buttonTwo.tag = 9
+        if self.theArticle[IndexPath.row].full_picture != nil {
+//        let url = URL(string: self.theArticle[IndexPath.row].full_picture!)
+//        
+//        DispatchQueue.global().async {
+//            let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+//            DispatchQueue.main.async {
+//                cell.theImage.image = UIImage(data: data!)
+//            }
+//        }
+//        
+//        
+//        }
         
+        
+        if (self.cache.object(forKey: (IndexPath as NSIndexPath).row as AnyObject) != nil){
+                print("Cached image used, no need to download it")
+            cell.theImage?.image = self.cache.object(forKey: (IndexPath as NSIndexPath).row as AnyObject) as? UIImage
         }
+        else{
+            /**
+             * ... if image dosnt exist in the cache, download it using NSURSession providing the url, display it, and store to the cahe ...
+             */
+            
+            let artworkUrl = self.theArticle[IndexPath.row].full_picture!
+            let url:URL! = URL(string: artworkUrl)
+            task = session.downloadTask(with: url, completionHandler: { (location, response, error) -> Void in
+                if let data = try? Data(contentsOf: url){
+                    
+                    DispatchQueue.main.async(execute: { () -> Void in
+                        // Before we assign the image, check whether the current cell is visible
+                        //if let updateCell = tableView.cellForRow(at: IndexPath) {
+                            let img:UIImage! = UIImage(data: data)
+                            //updateCell.imageView?.image = img
+                            cell.theImage.image = img
+                            self.cache.setObject(img, forKey: (IndexPath as NSIndexPath).row as AnyObject)
+                        //}
+                    })
                 }
+            })
+            task.resume()
+        }
+        }
+        // uncomment this line if not using NSCache
+        //cell.prepareForReuse()
+        
         return cell
     }
     
 
-    @IBAction func handleTapButton(sender: AnyObject) {
-        
-        let tappoint = sender.convertPoint(CGPointZero, toView: self.tableView)
-        
-        if let indexPath = self.tableView.indexPathForRowAtPoint(tappoint) {
-        
-        let mySelectedCell = tableView.cellForRowAtIndexPath(indexPath) as? BucketListcell
-            if mySelectedCell != nil{
-
-                let storyboard = UIStoryboard(name: "FindProperty", bundle: nil)
-                //let controller = storyboard.instantiateViewControllerWithIdentifier("PropertyCardDetail")                    as! PropertyCardViewController
-                //controller.IS_DETAIL_PAGE = true
-                let controller = storyboard.instantiateViewControllerWithIdentifier("SinglePropertyDetailsVC")                    as! SinglePropertyDetailsViewController
-                controller.CAN_REVIEW = false
-                controller.CAN_SEND = false
-                let property = propArray[indexPath.row]
-//                for conv in MessengerController.conversationArray {
-//                    if conv.conversationid?.stringValue == convid {
-//
-//                        property.additionalInfo = ["ClientName": conv.conversationname ?? ""]
-//                        break
-//                    }
-//                }
-                controller.property = property
-                self.navigationController?.pushViewController(controller, animated: true)
-            }
-        }
-    }
-
+    // MARK: - Navigation
     
-   
-    func notesButtonClicked(indexPath: NSIndexPath) {
-        
-       let prop = propArray[(indexPath.row)]
-        let address = "\(prop.address), \(prop.city)"
-        var propertyid = ""
-        if let sharedPropertyId = prop.additionalInfo?.objectForKey("SharedPropertyId") as? String {
-            propertyid = sharedPropertyId
-        }
-        // show propertyNotesDisplay page
-        let storyboard = UIStoryboard(name: "NotesStorybord", bundle: nil)
-        if let vc = storyboard.instantiateViewControllerWithIdentifier("PropertyNotesDisplay") as? PropertyNotesDisplay {
-            vc.propertyAddress = address
-            print(propertyid)
-            vc.propertyid = propertyid
-            let color = UIColor.grayColor()
-            
-            vc.view.backgroundColor = color.colorWithAlphaComponent(0.6)
-            vc.modalPresentationStyle = UIModalPresentationStyle.Custom
-            self.presentViewController(vc, animated: true, completion:nil)
-            
-            
-        }
-    }
-
     
-    @IBAction func actionClick (sender: AnyObject) {
-        
-        let tappoint = sender.convertPoint(CGPointZero, toView: self.tableView)
-        if let indexPath = self.tableView.indexPathForRowAtPoint(tappoint) {
-            let mySelectedCell = tableView.cellForRowAtIndexPath(indexPath) as? BucketListcell
-            if mySelectedCell != nil{
-                self.performAction (indexPath, senderTag: sender.tag)
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        //        navigationItem.backBarButtonItem?.tintColor = UIColor.blackColor()
+        if segue.identifier == "details" {
+            if let indexPath = tableView.indexPathForSelectedRow{
                 
-            }
+                
+                let viewController = segue.destination as? DetailsViewController
+                let selectedRow = indexPath.row
+                
+                let cell = tableView.dequeueReusableCell(withIdentifier: "BucketListcell", for: indexPath) as! BucketListcell
+                viewController?.theArticle = [self.theArticle[selectedRow]]
+                    if (self.cache.object(forKey: (indexPath as NSIndexPath).row as AnyObject) != nil){
+                        viewController?.myImage = self.cache.object(forKey: selectedRow as AnyObject) as? UIImage
+                    }
+                    else{
+                        viewController?.myImage = UIImage(named: "image-unavailable")
+                    }
+                }
+                
+                
+          
+            
         }
-        
+        }
     }
 
     
-}
+
 
 class BucketListcell: UITableViewCell {
     
-    @IBOutlet weak var actionView: UIView!
     @IBOutlet weak var mainView: UIView!
-   
-    @IBOutlet weak var bottomMargingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var price: UILabel!
-    @IBOutlet weak var address: UILabel!
-    @IBOutlet weak var city: UILabel!
-    @IBOutlet weak var providerTitle: UILabel!
-    @IBOutlet weak var providerName: UILabel!
-    @IBOutlet weak var date: UILabel!
-    
-    @IBOutlet weak var propertyImageview: UIImageView!
-    @IBOutlet weak var tapButton: UIButton!
-    @IBOutlet weak var tapView: UIView!
-    
-  
-    @IBOutlet weak var botomTextLayout: NSLayoutConstraint!
-    var  coverLayer : CALayer!
-    
-    @IBOutlet weak var viewFour: UIView!
-    
-    @IBOutlet weak var buttonFour: UIButton!
-    
-    @IBOutlet weak var labelFour: UILabel!
-    
-    @IBOutlet weak var imageFour: UIImageView!
-   
-    
-    @IBOutlet weak var viewThree: UIView!
-    @IBOutlet weak var buttonThree: UIButton!
-    
-    @IBOutlet weak var labelThree: UILabel!
-    
-    @IBOutlet weak var imageThree: UIImageView!
-    
-    
-    @IBOutlet weak var noteView: UIView!
-    
-    @IBOutlet weak var noteLabel: UILabel!
-    
-    @IBOutlet weak var viewTwo: UIView!
-    @IBOutlet weak var buttonTwo: UIButton!
-    
-    @IBOutlet weak var labelTwo: UILabel!
-    
-    @IBOutlet weak var imageTwo: UIImageView!
-    
-    @IBOutlet weak var viewOne: UIView!
-    @IBOutlet weak var buttonOne: UIButton!
-    
-    @IBOutlet weak var labelOne: UILabel!
-    
-    @IBOutlet weak var imageOne: UIImageView!
-    
+    @IBOutlet weak var theImage: UIImageView!
+    @IBOutlet weak var theText: UILabel!
+    @IBOutlet weak var dateUpload : UILabel!
+    @IBOutlet weak var location: UILabel!
+    @IBOutlet weak var name : UILabel!
+    @IBOutlet weak var likes: UILabel!
+    @IBOutlet weak var locationIcon: UIImageView!
+    @IBOutlet weak var likeIcon: UIImageView!
+    @IBOutlet weak var titleLbl: UILabel!
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        theImage.image = UIImage(named: "image-unavailable.png")
+        
+        
+    }
 
-    
-    
 }

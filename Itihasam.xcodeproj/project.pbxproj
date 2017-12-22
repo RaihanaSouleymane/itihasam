@@ -7,23 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		80D99A0A52B68E6B2FEB90ED /* Pods_Itihasam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89D2BA0DC523B8F2DF3F7DEE /* Pods_Itihasam.framework */; };
+		FA1B41F11F8879FB008CB1E8 /* ButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B41F01F8879FB008CB1E8 /* ButtonModel.swift */; };
+		FA1B41F31F887AC2008CB1E8 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B41F21F887AC2008CB1E8 /* Constraints.swift */; };
+		FA1B41F51F887B0E008CB1E8 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B41F41F887B0E008CB1E8 /* UIImage+Extension.swift */; };
 		FA1EE78A1DB20280001601F1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1EE7891DB20280001601F1 /* MenuViewController.swift */; };
 		FA1EE78C1DB20A7E001601F1 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1EE78B1DB20A7E001601F1 /* ListViewController.swift */; };
 		FA1EE78E1DB211D1001601F1 /* BucketListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1EE78D1DB211D1001601F1 /* BucketListTableViewController.swift */; };
 		FA539FCB1DA585900044EF64 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA539FCA1DA585900044EF64 /* CollectionView.swift */; };
 		FA73BB071DB369CE0078A999 /* DescriptionPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA73BB061DB369CE0078A999 /* DescriptionPost.swift */; };
+		FABBEE521E1379E7003A1FF3 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABBEE511E1379E7003A1FF3 /* Article.swift */; };
+		FABBEE541E137A36003A1FF3 /* WebSercive.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABBEE531E137A36003A1FF3 /* WebSercive.swift */; };
+		FABBEE561E137A41003A1FF3 /* ABActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABBEE551E137A41003A1FF3 /* ABActivity.swift */; };
+		FABBEE581E16F87C003A1FF3 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABBEE571E16F87C003A1FF3 /* DetailsViewController.swift */; };
+		FABBEE5A1E16FCAF003A1FF3 /* image-unavailable.png in Resources */ = {isa = PBXBuildFile; fileRef = FABBEE591E16FCAF003A1FF3 /* image-unavailable.png */; };
 		FAE630D11DA0327A0046EF6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE630D01DA0327A0046EF6D /* AppDelegate.swift */; };
 		FAE630D31DA0327A0046EF6D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE630D21DA0327A0046EF6D /* ViewController.swift */; };
 		FAE630D61DA0327A0046EF6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAE630D41DA0327A0046EF6D /* Main.storyboard */; };
 		FAE630D81DA0327A0046EF6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAE630D71DA0327A0046EF6D /* Assets.xcassets */; };
 		FAE630DB1DA0327A0046EF6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAE630D91DA0327A0046EF6D /* LaunchScreen.storyboard */; };
-		FAE630E61DA0327A0046EF6D /* ConnectionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE630E51DA0327A0046EF6D /* ConnectionsTests.swift */; };
-		FAE630F11DA0327A0046EF6D /* ConnectionsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE630F01DA0327A0046EF6D /* ConnectionsUITests.swift */; };
+		FAE630E61DA0327A0046EF6D /* ItihasamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE630E51DA0327A0046EF6D /* ItihasamTests.swift */; };
+		FAE630F11DA0327A0046EF6D /* ItihasamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE630F01DA0327A0046EF6D /* ItihasamUITests.swift */; };
 		FAE630FF1DA0331B0046EF6D /* Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE630FE1DA0331B0046EF6D /* Homepage.swift */; };
-		FAE631061DA4CDEB0046EF6D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE631011DA4CDEB0046EF6D /* FBSDKCoreKit.framework */; };
-		FAE631071DA4CDEB0046EF6D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE631021DA4CDEB0046EF6D /* FBSDKLoginKit.framework */; };
-		FAE631091DA4CDEB0046EF6D /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE631041DA4CDEB0046EF6D /* FBSDKShareKit.framework */; };
-		FAFF6B811DA4EC0500E98F93 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAFF6B801DA4EC0500E98F93 /* Bolts.framework */; };
+		FAE9F65B1DDFCB7A00944291 /* LaunchLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE9F65A1DDFCB7A00944291 /* LaunchLoginViewController.swift */; };
+		FAE9F65E1DDFCFE200944291 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE9F65C1DDFCFE200944291 /* 2.png */; };
+		FAE9F65F1DDFCFE200944291 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE9F65D1DDFCFE200944291 /* 3.png */; };
+		FAFE44C41E221A270033A5DE /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE44C31E221A270033A5DE /* MapView.swift */; };
+		FAFE44CC1E221A500033A5DE /* FBAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE44C51E221A500033A5DE /* FBAnnotation.swift */; };
+		FAFE44CD1E221A500033A5DE /* FBAnnotationCluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE44C61E221A500033A5DE /* FBAnnotationCluster.swift */; };
+		FAFE44CE1E221A500033A5DE /* FBAnnotationClusterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE44C71E221A500033A5DE /* FBAnnotationClusterView.swift */; };
+		FAFE44CF1E221A500033A5DE /* FBBoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE44C81E221A500033A5DE /* FBBoundingBox.swift */; };
+		FAFE44D01E221A500033A5DE /* FBClusteringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE44C91E221A500033A5DE /* FBClusteringManager.swift */; };
+		FAFE44D11E221A500033A5DE /* FBQuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE44CA1E221A500033A5DE /* FBQuadTree.swift */; };
+		FAFE44D21E221A500033A5DE /* FBQuadTreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE44CB1E221A500033A5DE /* FBQuadTreeNode.swift */; };
+		FAFE44D41E221AC60033A5DE /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE44D31E221AC60033A5DE /* MyViewController.swift */; };
+		FAFE451C1E25F8060033A5DE /* DSC_0003lghiw (3).JPG in Resources */ = {isa = PBXBuildFile; fileRef = FAFE451B1E25F8060033A5DE /* DSC_0003lghiw (3).JPG */; };
 		FAFF6B831DA4EEE100E98F93 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF6B821DA4EEE100E98F93 /* LoginPage.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,30 +63,51 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2DAAAE0F2A4ABD3ADBD4BE40 /* Pods-Itihasam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itihasam.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Itihasam/Pods-Itihasam.debug.xcconfig"; sourceTree = "<group>"; };
+		39DB353B3A5061677960991C /* Pods-Itihasam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itihasam.release.xcconfig"; path = "Pods/Target Support Files/Pods-Itihasam/Pods-Itihasam.release.xcconfig"; sourceTree = "<group>"; };
+		89D2BA0DC523B8F2DF3F7DEE /* Pods_Itihasam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Itihasam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA1B41F01F8879FB008CB1E8 /* ButtonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonModel.swift; sourceTree = "<group>"; };
+		FA1B41F21F887AC2008CB1E8 /* Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		FA1B41F41F887B0E008CB1E8 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		FA1EE7891DB20280001601F1 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		FA1EE78B1DB20A7E001601F1 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		FA1EE78D1DB211D1001601F1 /* BucketListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketListTableViewController.swift; sourceTree = "<group>"; };
 		FA2D0C581DA78AA60046BA32 /* Connections.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Connections.entitlements; sourceTree = "<group>"; };
 		FA539FCA1DA585900044EF64 /* CollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		FA73BB061DB369CE0078A999 /* DescriptionPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionPost.swift; sourceTree = "<group>"; };
-		FAE630CD1DA0327A0046EF6D /* Itihasam .app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Itihasam .app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FABBEE511E1379E7003A1FF3 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		FABBEE531E137A36003A1FF3 /* WebSercive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSercive.swift; sourceTree = "<group>"; };
+		FABBEE551E137A41003A1FF3 /* ABActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABActivity.swift; sourceTree = "<group>"; };
+		FABBEE571E16F87C003A1FF3 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		FABBEE591E16FCAF003A1FF3 /* image-unavailable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image-unavailable.png"; sourceTree = "<group>"; };
+		FAC8D4AC1F7884430018D1A2 /* Itihasam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Itihasam.entitlements; sourceTree = "<group>"; };
+		FAE630CD1DA0327A0046EF6D /* Itihasam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Itihasam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE630D01DA0327A0046EF6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAE630D21DA0327A0046EF6D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FAE630D51DA0327A0046EF6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAE630D71DA0327A0046EF6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAE630DA1DA0327A0046EF6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAE630DC1DA0327A0046EF6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAE630E11DA0327A0046EF6D /* Itihasam Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Itihasam Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAE630E51DA0327A0046EF6D /* ConnectionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsTests.swift; sourceTree = "<group>"; };
+		FAE630E11DA0327A0046EF6D /* ItihasamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ItihasamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAE630E51DA0327A0046EF6D /* ItihasamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItihasamTests.swift; sourceTree = "<group>"; };
 		FAE630E71DA0327A0046EF6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAE630EC1DA0327A0046EF6D /* Itihasam UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Itihasam UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAE630F01DA0327A0046EF6D /* ConnectionsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsUITests.swift; sourceTree = "<group>"; };
+		FAE630EC1DA0327A0046EF6D /* ItihasamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ItihasamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAE630F01DA0327A0046EF6D /* ItihasamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItihasamUITests.swift; sourceTree = "<group>"; };
 		FAE630F21DA0327A0046EF6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAE630FE1DA0331B0046EF6D /* Homepage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Homepage.swift; sourceTree = "<group>"; };
-		FAE631011DA4CDEB0046EF6D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		FAE631021DA4CDEB0046EF6D /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		FAE631041DA4CDEB0046EF6D /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
-		FAFF6B801DA4EC0500E98F93 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		FAE9F65A1DDFCB7A00944291 /* LaunchLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchLoginViewController.swift; sourceTree = "<group>"; };
+		FAE9F65C1DDFCFE200944291 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		FAE9F65D1DDFCFE200944291 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		FAFE44C31E221A270033A5DE /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		FAFE44C51E221A500033A5DE /* FBAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBAnnotation.swift; sourceTree = "<group>"; };
+		FAFE44C61E221A500033A5DE /* FBAnnotationCluster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBAnnotationCluster.swift; sourceTree = "<group>"; };
+		FAFE44C71E221A500033A5DE /* FBAnnotationClusterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBAnnotationClusterView.swift; sourceTree = "<group>"; };
+		FAFE44C81E221A500033A5DE /* FBBoundingBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBBoundingBox.swift; sourceTree = "<group>"; };
+		FAFE44C91E221A500033A5DE /* FBClusteringManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBClusteringManager.swift; sourceTree = "<group>"; };
+		FAFE44CA1E221A500033A5DE /* FBQuadTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBQuadTree.swift; sourceTree = "<group>"; };
+		FAFE44CB1E221A500033A5DE /* FBQuadTreeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBQuadTreeNode.swift; sourceTree = "<group>"; };
+		FAFE44D31E221AC60033A5DE /* MyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
+		FAFE451B1E25F8060033A5DE /* DSC_0003lghiw (3).JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DSC_0003lghiw (3).JPG"; sourceTree = "<group>"; };
 		FAFF6B821DA4EEE100E98F93 /* LoginPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,10 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAE631091DA4CDEB0046EF6D /* FBSDKShareKit.framework in Frameworks */,
-				FAE631061DA4CDEB0046EF6D /* FBSDKCoreKit.framework in Frameworks */,
-				FAE631071DA4CDEB0046EF6D /* FBSDKLoginKit.framework in Frameworks */,
-				FAFF6B811DA4EC0500E98F93 /* Bolts.framework in Frameworks */,
+				80D99A0A52B68E6B2FEB90ED /* Pods_Itihasam.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,22 +137,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ACDF0E2119A26648D235E7F4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2DAAAE0F2A4ABD3ADBD4BE40 /* Pods-Itihasam.debug.xcconfig */,
+				39DB353B3A5061677960991C /* Pods-Itihasam.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BEB72104A732EAB1BDF1DC00 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				89D2BA0DC523B8F2DF3F7DEE /* Pods_Itihasam.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FAE630C41DA0327A0046EF6D = {
 			isa = PBXGroup;
 			children = (
+				FAC8D4AC1F7884430018D1A2 /* Itihasam.entitlements */,
 				FAE630CF1DA0327A0046EF6D /* Connections */,
 				FAE630E41DA0327A0046EF6D /* ConnectionsTests */,
 				FAE630EF1DA0327A0046EF6D /* ConnectionsUITests */,
 				FAE630CE1DA0327A0046EF6D /* Products */,
+				ACDF0E2119A26648D235E7F4 /* Pods */,
+				BEB72104A732EAB1BDF1DC00 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		FAE630CE1DA0327A0046EF6D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FAE630CD1DA0327A0046EF6D /* Itihasam .app */,
-				FAE630E11DA0327A0046EF6D /* Itihasam Tests.xctest */,
-				FAE630EC1DA0327A0046EF6D /* Itihasam UITests.xctest */,
+				FAE630CD1DA0327A0046EF6D /* Itihasam.app */,
+				FAE630E11DA0327A0046EF6D /* ItihasamTests.xctest */,
+				FAE630EC1DA0327A0046EF6D /* ItihasamUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,15 +180,27 @@
 		FAE630CF1DA0327A0046EF6D /* Connections */ = {
 			isa = PBXGroup;
 			children = (
+				FAFE44C21E2219FE0033A5DE /* MapView */,
 				FA2D0C581DA78AA60046BA32 /* Connections.entitlements */,
-				FAE6310A1DA4CDF50046EF6D /* FacebookFrameWorks */,
 				FAE630D01DA0327A0046EF6D /* AppDelegate.swift */,
+				FA1B41F01F8879FB008CB1E8 /* ButtonModel.swift */,
+				FA1B41F21F887AC2008CB1E8 /* Constraints.swift */,
+				FA1B41F41F887B0E008CB1E8 /* UIImage+Extension.swift */,
 				FAE630D21DA0327A0046EF6D /* ViewController.swift */,
 				FAFF6B821DA4EEE100E98F93 /* LoginPage.swift */,
 				FA73BB061DB369CE0078A999 /* DescriptionPost.swift */,
+				FAE9F65A1DDFCB7A00944291 /* LaunchLoginViewController.swift */,
 				FA1EE7891DB20280001601F1 /* MenuViewController.swift */,
+				FABBEE571E16F87C003A1FF3 /* DetailsViewController.swift */,
 				FA1EE78D1DB211D1001601F1 /* BucketListTableViewController.swift */,
 				FA539FCA1DA585900044EF64 /* CollectionView.swift */,
+				FABBEE551E137A41003A1FF3 /* ABActivity.swift */,
+				FAE9F65C1DDFCFE200944291 /* 2.png */,
+				FAFE451B1E25F8060033A5DE /* DSC_0003lghiw (3).JPG */,
+				FABBEE531E137A36003A1FF3 /* WebSercive.swift */,
+				FABBEE511E1379E7003A1FF3 /* Article.swift */,
+				FABBEE591E16FCAF003A1FF3 /* image-unavailable.png */,
+				FAE9F65D1DDFCFE200944291 /* 3.png */,
 				FAE630FE1DA0331B0046EF6D /* Homepage.swift */,
 				FA1EE78B1DB20A7E001601F1 /* ListViewController.swift */,
 				FAE630D41DA0327A0046EF6D /* Main.storyboard */,
@@ -146,7 +214,7 @@
 		FAE630E41DA0327A0046EF6D /* ConnectionsTests */ = {
 			isa = PBXGroup;
 			children = (
-				FAE630E51DA0327A0046EF6D /* ConnectionsTests.swift */,
+				FAE630E51DA0327A0046EF6D /* ItihasamTests.swift */,
 				FAE630E71DA0327A0046EF6D /* Info.plist */,
 			);
 			path = ConnectionsTests;
@@ -155,46 +223,54 @@
 		FAE630EF1DA0327A0046EF6D /* ConnectionsUITests */ = {
 			isa = PBXGroup;
 			children = (
-				FAE630F01DA0327A0046EF6D /* ConnectionsUITests.swift */,
+				FAE630F01DA0327A0046EF6D /* ItihasamUITests.swift */,
 				FAE630F21DA0327A0046EF6D /* Info.plist */,
 			);
 			path = ConnectionsUITests;
 			sourceTree = "<group>";
 		};
-		FAE6310A1DA4CDF50046EF6D /* FacebookFrameWorks */ = {
+		FAFE44C21E2219FE0033A5DE /* MapView */ = {
 			isa = PBXGroup;
 			children = (
-				FAFF6B801DA4EC0500E98F93 /* Bolts.framework */,
-				FAE631011DA4CDEB0046EF6D /* FBSDKCoreKit.framework */,
-				FAE631021DA4CDEB0046EF6D /* FBSDKLoginKit.framework */,
-				FAE631041DA4CDEB0046EF6D /* FBSDKShareKit.framework */,
+				FAFE44C51E221A500033A5DE /* FBAnnotation.swift */,
+				FAFE44C61E221A500033A5DE /* FBAnnotationCluster.swift */,
+				FAFE44C71E221A500033A5DE /* FBAnnotationClusterView.swift */,
+				FAFE44C81E221A500033A5DE /* FBBoundingBox.swift */,
+				FAFE44C91E221A500033A5DE /* FBClusteringManager.swift */,
+				FAFE44CA1E221A500033A5DE /* FBQuadTree.swift */,
+				FAFE44CB1E221A500033A5DE /* FBQuadTreeNode.swift */,
+				FAFE44C31E221A270033A5DE /* MapView.swift */,
+				FAFE44D31E221AC60033A5DE /* MyViewController.swift */,
 			);
-			name = FacebookFrameWorks;
+			name = MapView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FAE630CC1DA0327A0046EF6D /* Itihasam  */ = {
+		FAE630CC1DA0327A0046EF6D /* Itihasam */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FAE630F51DA0327A0046EF6D /* Build configuration list for PBXNativeTarget "Itihasam " */;
+			buildConfigurationList = FAE630F51DA0327A0046EF6D /* Build configuration list for PBXNativeTarget "Itihasam" */;
 			buildPhases = (
+				A16920821F975215F16006AD /* [CP] Check Pods Manifest.lock */,
 				FAE630C91DA0327A0046EF6D /* Sources */,
 				FAE630CA1DA0327A0046EF6D /* Frameworks */,
 				FAE630CB1DA0327A0046EF6D /* Resources */,
+				476C5C7C76D7BF01551E2E5B /* [CP] Embed Pods Frameworks */,
+				045A5B885BB8C0C74DB9B804 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Itihasam ";
+			name = Itihasam;
 			productName = Connections;
-			productReference = FAE630CD1DA0327A0046EF6D /* Itihasam .app */;
+			productReference = FAE630CD1DA0327A0046EF6D /* Itihasam.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FAE630E01DA0327A0046EF6D /* Itihasam Tests */ = {
+		FAE630E01DA0327A0046EF6D /* ItihasamTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FAE630F81DA0327A0046EF6D /* Build configuration list for PBXNativeTarget "Itihasam Tests" */;
+			buildConfigurationList = FAE630F81DA0327A0046EF6D /* Build configuration list for PBXNativeTarget "ItihasamTests" */;
 			buildPhases = (
 				FAE630DD1DA0327A0046EF6D /* Sources */,
 				FAE630DE1DA0327A0046EF6D /* Frameworks */,
@@ -205,14 +281,14 @@
 			dependencies = (
 				FAE630E31DA0327A0046EF6D /* PBXTargetDependency */,
 			);
-			name = "Itihasam Tests";
+			name = ItihasamTests;
 			productName = ConnectionsTests;
-			productReference = FAE630E11DA0327A0046EF6D /* Itihasam Tests.xctest */;
+			productReference = FAE630E11DA0327A0046EF6D /* ItihasamTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		FAE630EB1DA0327A0046EF6D /* Itihasam UITests */ = {
+		FAE630EB1DA0327A0046EF6D /* ItihasamUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FAE630FB1DA0327A0046EF6D /* Build configuration list for PBXNativeTarget "Itihasam UITests" */;
+			buildConfigurationList = FAE630FB1DA0327A0046EF6D /* Build configuration list for PBXNativeTarget "ItihasamUITests" */;
 			buildPhases = (
 				FAE630E81DA0327A0046EF6D /* Sources */,
 				FAE630E91DA0327A0046EF6D /* Frameworks */,
@@ -223,9 +299,9 @@
 			dependencies = (
 				FAE630EE1DA0327A0046EF6D /* PBXTargetDependency */,
 			);
-			name = "Itihasam UITests";
+			name = ItihasamUITests;
 			productName = ConnectionsUITests;
-			productReference = FAE630EC1DA0327A0046EF6D /* Itihasam UITests.xctest */;
+			productReference = FAE630EC1DA0327A0046EF6D /* ItihasamUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -241,7 +317,7 @@
 					FAE630CC1DA0327A0046EF6D = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 499HZP5KWP;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -251,18 +327,17 @@
 					FAE630E01DA0327A0046EF6D = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 499HZP5KWP;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = FAE630CC1DA0327A0046EF6D;
 					};
 					FAE630EB1DA0327A0046EF6D = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 499HZP5KWP;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = FAE630CC1DA0327A0046EF6D;
 					};
 				};
 			};
-			buildConfigurationList = FAE630C81DA0327A0046EF6D /* Build configuration list for PBXProject "Itihasam " */;
+			buildConfigurationList = FAE630C81DA0327A0046EF6D /* Build configuration list for PBXProject "Itihasam" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -275,9 +350,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FAE630CC1DA0327A0046EF6D /* Itihasam  */,
-				FAE630E01DA0327A0046EF6D /* Itihasam Tests */,
-				FAE630EB1DA0327A0046EF6D /* Itihasam UITests */,
+				FAE630CC1DA0327A0046EF6D /* Itihasam */,
+				FAE630E01DA0327A0046EF6D /* ItihasamTests */,
+				FAE630EB1DA0327A0046EF6D /* ItihasamUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -287,8 +362,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FABBEE5A1E16FCAF003A1FF3 /* image-unavailable.png in Resources */,
+				FAE9F65F1DDFCFE200944291 /* 3.png in Resources */,
 				FAE630DB1DA0327A0046EF6D /* LaunchScreen.storyboard in Resources */,
 				FAE630D81DA0327A0046EF6D /* Assets.xcassets in Resources */,
+				FAFE451C1E25F8060033A5DE /* DSC_0003lghiw (3).JPG in Resources */,
+				FAE9F65E1DDFCFE200944291 /* 2.png in Resources */,
 				FAE630D61DA0327A0046EF6D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,19 +388,102 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		045A5B885BB8C0C74DB9B804 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Itihasam/Pods-Itihasam-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		476C5C7C76D7BF01551E2E5B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Itihasam/Pods-Itihasam-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Itihasam/Pods-Itihasam-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A16920821F975215F16006AD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Itihasam-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FAE630C91DA0327A0046EF6D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAFE44CC1E221A500033A5DE /* FBAnnotation.swift in Sources */,
 				FAFF6B831DA4EEE100E98F93 /* LoginPage.swift in Sources */,
+				FA1B41F31F887AC2008CB1E8 /* Constraints.swift in Sources */,
 				FA1EE78A1DB20280001601F1 /* MenuViewController.swift in Sources */,
+				FABBEE521E1379E7003A1FF3 /* Article.swift in Sources */,
+				FAFE44CE1E221A500033A5DE /* FBAnnotationClusterView.swift in Sources */,
+				FAFE44CF1E221A500033A5DE /* FBBoundingBox.swift in Sources */,
 				FA539FCB1DA585900044EF64 /* CollectionView.swift in Sources */,
 				FAE630FF1DA0331B0046EF6D /* Homepage.swift in Sources */,
 				FAE630D31DA0327A0046EF6D /* ViewController.swift in Sources */,
+				FAE9F65B1DDFCB7A00944291 /* LaunchLoginViewController.swift in Sources */,
+				FAFE44C41E221A270033A5DE /* MapView.swift in Sources */,
+				FABBEE561E137A41003A1FF3 /* ABActivity.swift in Sources */,
+				FA1B41F51F887B0E008CB1E8 /* UIImage+Extension.swift in Sources */,
 				FA73BB071DB369CE0078A999 /* DescriptionPost.swift in Sources */,
 				FAE630D11DA0327A0046EF6D /* AppDelegate.swift in Sources */,
+				FAFE44D21E221A500033A5DE /* FBQuadTreeNode.swift in Sources */,
 				FA1EE78C1DB20A7E001601F1 /* ListViewController.swift in Sources */,
+				FAFE44D01E221A500033A5DE /* FBClusteringManager.swift in Sources */,
+				FA1B41F11F8879FB008CB1E8 /* ButtonModel.swift in Sources */,
+				FABBEE581E16F87C003A1FF3 /* DetailsViewController.swift in Sources */,
+				FAFE44D41E221AC60033A5DE /* MyViewController.swift in Sources */,
+				FAFE44D11E221A500033A5DE /* FBQuadTree.swift in Sources */,
+				FABBEE541E137A36003A1FF3 /* WebSercive.swift in Sources */,
+				FAFE44CD1E221A500033A5DE /* FBAnnotationCluster.swift in Sources */,
 				FA1EE78E1DB211D1001601F1 /* BucketListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,7 +492,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAE630E61DA0327A0046EF6D /* ConnectionsTests.swift in Sources */,
+				FAE630E61DA0327A0046EF6D /* ItihasamTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,7 +500,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAE630F11DA0327A0046EF6D /* ConnectionsUITests.swift in Sources */,
+				FAE630F11DA0327A0046EF6D /* ItihasamUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,12 +509,12 @@
 /* Begin PBXTargetDependency section */
 		FAE630E31DA0327A0046EF6D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FAE630CC1DA0327A0046EF6D /* Itihasam  */;
+			target = FAE630CC1DA0327A0046EF6D /* Itihasam */;
 			targetProxy = FAE630E21DA0327A0046EF6D /* PBXContainerItemProxy */;
 		};
 		FAE630EE1DA0327A0046EF6D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FAE630CC1DA0327A0046EF6D /* Itihasam  */;
+			target = FAE630CC1DA0327A0046EF6D /* Itihasam */;
 			targetProxy = FAE630ED1DA0327A0046EF6D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -398,7 +560,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Raihana Abakar (499HZP5KWP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Raihana Abakar (499HZP5KWP)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -417,7 +580,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -448,11 +611,13 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Raihana Abakar (499HZP5KWP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Raihana Abakar (499HZP5KWP)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -461,7 +626,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -472,9 +637,12 @@
 		};
 		FAE630F61DA0327A0046EF6D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2DAAAE0F2A4ABD3ADBD4BE40 /* Pods-Itihasam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Connections/Connections.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Itihasam.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Raihana Abakar (UEF5B94997)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 499HZP5KWP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -484,15 +652,20 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RaihanaSouleymane.Itihasam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ca862b7d-924a-4d88-95d7-bc01a46bead8";
+				PROVISIONING_PROFILE_SPECIFIER = Itihasam_prod;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		FAE630F71DA0327A0046EF6D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39DB353B3A5061677960991C /* Pods-Itihasam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Connections/Connections.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Itihasam.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Raihana Abakar (UEF5B94997)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 499HZP5KWP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -502,6 +675,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RaihanaSouleymane.Itihasam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ca862b7d-924a-4d88-95d7-bc01a46bead8";
+				PROVISIONING_PROFILE_SPECIFIER = Itihasam_prod;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -511,13 +686,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 499HZP5KWP;
-				INFOPLIST_FILE = ConnectionsTests/Info.plist;
+				INFOPLIST_FILE = ItihasamTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RaihanaSouleymane.ConnectionsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Itihasam .app/Itihasam ";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Itihasam.app/Itihasam";
 			};
 			name = Debug;
 		};
@@ -526,13 +703,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 499HZP5KWP;
-				INFOPLIST_FILE = ConnectionsTests/Info.plist;
+				INFOPLIST_FILE = ItihasamTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RaihanaSouleymane.ConnectionsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Itihasam .app/Itihasam ";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Itihasam.app/Itihasam";
 			};
 			name = Release;
 		};
@@ -540,11 +719,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 499HZP5KWP;
-				INFOPLIST_FILE = ConnectionsUITests/Info.plist;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = ItihasamUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RaihanaSouleymane.ConnectionsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Connections;
 			};
@@ -554,11 +734,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 499HZP5KWP;
-				INFOPLIST_FILE = ConnectionsUITests/Info.plist;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = ItihasamUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RaihanaSouleymane.ConnectionsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Connections;
 			};
@@ -567,7 +748,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FAE630C81DA0327A0046EF6D /* Build configuration list for PBXProject "Itihasam " */ = {
+		FAE630C81DA0327A0046EF6D /* Build configuration list for PBXProject "Itihasam" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FAE630F31DA0327A0046EF6D /* Debug */,
@@ -576,7 +757,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FAE630F51DA0327A0046EF6D /* Build configuration list for PBXNativeTarget "Itihasam " */ = {
+		FAE630F51DA0327A0046EF6D /* Build configuration list for PBXNativeTarget "Itihasam" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FAE630F61DA0327A0046EF6D /* Debug */,
@@ -585,7 +766,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FAE630F81DA0327A0046EF6D /* Build configuration list for PBXNativeTarget "Itihasam Tests" */ = {
+		FAE630F81DA0327A0046EF6D /* Build configuration list for PBXNativeTarget "ItihasamTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FAE630F91DA0327A0046EF6D /* Debug */,
@@ -594,7 +775,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FAE630FB1DA0327A0046EF6D /* Build configuration list for PBXNativeTarget "Itihasam UITests" */ = {
+		FAE630FB1DA0327A0046EF6D /* Build configuration list for PBXNativeTarget "ItihasamUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FAE630FC1DA0327A0046EF6D /* Debug */,

@@ -15,7 +15,7 @@ class FBAnnotationClusterView : MKAnnotationView {
  
     var fontSize:CGFloat = 12
     
-    var imageName = "redBig"
+    var imageName = "orangeBig"
     
     var countLabel:UILabel?
     
@@ -25,27 +25,28 @@ class FBAnnotationClusterView : MKAnnotationView {
         let cluster:FBAnnotationCluster = annotation as! FBAnnotationCluster
         cluster.clusterView = self
         count = cluster.annotations.count
-
-        print ("Totalcount",WebService.sharedInstance.crimeArray.count)
+        print("count",count)
+        print ("Totalcount", Homepage.sharedInstance.theArticle.count)
+            //WebService.sharedInstance.crimeArray.count)
 
         
         // change the size of the cluster image based on number of reported Crimes
             switch count {
-            case 0...(WebService.sharedInstance.crimeArray.count/4):
+            case 0...(Homepage.sharedInstance.theArticle.count/4):
                 fontSize = 12
                 imageName = "blueSmall"
           
-            case (WebService.sharedInstance.crimeArray.count/4)...2*(WebService.sharedInstance.crimeArray.count/3):
+            case (Homepage.sharedInstance.theArticle.count/4)...2*(Homepage.sharedInstance.theArticle.count/3):
                 fontSize = 12
                 imageName = "orangeSmall"
                
-            case 2*(WebService.sharedInstance.crimeArray.count/3)...(WebService.sharedInstance.crimeArray.count):
+            case 2*(Homepage.sharedInstance.theArticle.count/3)...(Homepage.sharedInstance.theArticle.count):
                 fontSize = 12
                 imageName = "redSmall"
                 
             default:
                 fontSize = 14
-                imageName = "redBig"
+                imageName = "orangeBig"
                 
             }
             setupLabel()

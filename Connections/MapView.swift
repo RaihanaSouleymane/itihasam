@@ -1,17 +1,16 @@
 //
 //  MapView.swift
-//  BeSafe
+//  Connections
 //
-//  Created by Macbook on 10/10/16.
+//  Created by Macbook on 9/18/16.
 //  Copyright © 2016 Raihana A. Souleymane. All rights reserved.
-//
 
 import Foundation
 import MapKit
 
 @objc protocol MapViewDelegate {
     @objc optional func mapRegionChanged(_ mapView: MapView, lat: String, lng: String, widthInMetres: Double)
-    @objc optional func annotationView(_ mkMapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?
+    @objc optional func annotationView(_ mKMapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?
     @objc optional func annotationSelected(_ mapView: MapView, didSelectAnnotationView view: MKAnnotationView)
     @objc optional func annotationDeselected(_ mapView: MapView, didDeselectAnnotationView view: MKAnnotationView)
 }
@@ -19,9 +18,11 @@ class MapView: UIView, MKMapViewDelegate,CLLocationManagerDelegate{
     
     
     let clusteringManager = FBClusteringManager()
-    
-    @IBOutlet weak var mkMapView: MKMapView!
-    @IBOutlet weak var trackUserBtn: UIButton!
+    @IBOutlet weak var mKMapView : MKMapView!
+    @IBOutlet weak var trackUserBttn : UIButton!
+    @IBOutlet weak var mapButton: UIButton!
+    @IBOutlet weak var listButton: UIButton!
+    //@IBOutlet weak var trackUserBttn: UIButton!
     
     var drawingCoordinates = [NSValue]()
     var location: CGPoint = CGPoint()
@@ -30,25 +31,40 @@ class MapView: UIView, MKMapViewDelegate,CLLocationManagerDelegate{
     var lastWidthInMetres: Double = 0
     
     //Variables to play with
-    var clusterCellSize: Float = 10.0
+    var clusterCellSize: Float = 5.0
     var delegate:MapViewDelegate?
     
     override func awakeFromNib() {
-        mkMapView.delegate = self
-        mkMapView.mapType = MKMapType.standard
-        centerOfMap = mkMapView.region.center
+        mKMapView.delegate = self
+        mKMapView.mapType = MKMapType.standard
+        centerOfMap = mKMapView.region.center
         clusteringManager.delegate = self;
-        lastWidthInMetres = self.mkMapView.getMapWidthInMeters()
+        lastWidthInMetres = self.mKMapView.getMapWidthInMeters()
         
-        
-        
-        
+    
         self.locationManager.delegate =  self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
         // show the blue dot at the user Location pin
-        self.mkMapView.showsUserLocation = true
+        self.mKMapView.showsUserLocation = true
+    //Homepage.sharedInstance.apiCall()
+        
+        
+        self.mapButton.backgroundColor = UIColor(red: 33.0/255.0, green: 150.0/255.0, blue: 243.0/255.0, alpha: 1.0)
+        
+        self.listButton.backgroundColor = UIColor(red: 33.0/255.0, green: 150.0/255.0, blue: 243.0/255.0, alpha: 0.7)
+        
+        self.mapButton = ButtonModel.GhostActionButton(text: "Map!", foregroundColor: UIColor.white, button:self.mapButton)
+        self.mapButton.layer.cornerRadius = self.mapButton.height / 2
+        self.listButton = ButtonModel.GhostActionButton(text: "List!", foregroundColor: UIColor.white, button:self.listButton)
+        self.listButton.layer.cornerRadius = self.listButton.height / 2
+        
+        
+
+        
+        
+        
         
         
     }
@@ -59,7 +75,7 @@ class MapView: UIView, MKMapViewDelegate,CLLocationManagerDelegate{
     
     deinit {
         // perform the deinitialization
-        self.mkMapView.delegate = nil
+        self.mKMapView.delegate = nil
     }
     
     @IBAction func onDrawAction(_ sender: AnyObject) {
@@ -73,7 +89,7 @@ class MapView: UIView, MKMapViewDelegate,CLLocationManagerDelegate{
     
     
     @IBAction func onCancelDrawAction(_ sender: AnyObject) {
-        self.mkMapView.removeOverlays(self.mkMapView.overlays)
+        self.mKMapView.removeOverlays(self.mKMapView.overlays)
         
     }
     
@@ -86,18 +102,18 @@ class MapView: UIView, MKMapViewDelegate,CLLocationManagerDelegate{
             inputViewController?.present(noLocationServicesAlert, animated: true, completion: nil)
         }
         else {
-            switch(self.mkMapView.userTrackingMode){
+            switch(self.mKMapView.userTrackingMode){
             case MKUserTrackingMode.none:
-                trackUserBtn.setImage(UIImage(named: "TrackUserSelected") as UIImage?, for: UIControlState())
-                self.mkMapView.setUserTrackingMode(MKUserTrackingMode.follow, animated: true)
+                trackUserBttn.setImage(UIImage(named: "TrackUserSelected") as UIImage?, for: UIControlState())
+                self.mKMapView.setUserTrackingMode(MKUserTrackingMode.follow, animated: true)
                 break
             case MKUserTrackingMode.follow:
-                trackUserBtn.setImage(UIImage(named: "TrackUserWithHeading") as UIImage?, for: UIControlState())
-                self.mkMapView.setUserTrackingMode(MKUserTrackingMode.followWithHeading, animated: true)
+                trackUserBttn.setImage(UIImage(named: "TrackUserWithHeading") as UIImage?, for: UIControlState())
+                self.mKMapView.setUserTrackingMode(MKUserTrackingMode.followWithHeading, animated: true)
                 break
             case MKUserTrackingMode.followWithHeading:
-                trackUserBtn.setImage(UIImage(named: "TrackUserDeselect") as UIImage?, for: UIControlState())
-                self.mkMapView.setUserTrackingMode(MKUserTrackingMode.none, animated: true)
+                trackUserBttn.setImage(UIImage(named: "TrackUserDeselect") as UIImage?, for: UIControlState())
+                self.mKMapView.setUserTrackingMode(MKUserTrackingMode.none, animated: true)
                 break
             }
             
@@ -118,7 +134,7 @@ class MapView: UIView, MKMapViewDelegate,CLLocationManagerDelegate{
             
         } else {
             reuseId = "Pin"
-            return self.delegate?.annotationView?(mapView, viewForAnnotation: Crime.self as! MKAnnotation)
+            return self.delegate?.annotationView?(mapView, viewForAnnotation: Article.self as! MKAnnotation)
         }
     }
     
@@ -141,10 +157,10 @@ class MapView: UIView, MKMapViewDelegate,CLLocationManagerDelegate{
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         redrawAnnotations()
-        if(mkMapView.userTrackingMode == MKUserTrackingMode.none){
-            trackUserBtn.setImage(UIImage(named: "TrackUserDeselect") as UIImage?, for: UIControlState())
+        if(mKMapView.userTrackingMode == MKUserTrackingMode.none){
+            trackUserBttn.setImage(UIImage(named: "TrackUserDeselect") as UIImage?, for: UIControlState())
         }
-        self.delegate?.mapRegionChanged?(self, lat: String(format: "%f", (mkMapView.centerCoordinate.latitude)), lng: String(format: "%f", (mkMapView.centerCoordinate.longitude)), widthInMetres: mapView.getMapWidthInMeters())
+        self.delegate?.mapRegionChanged?(self, lat: String(format: "%f", (mKMapView.centerCoordinate.latitude)), lng: String(format: "%f", (mKMapView.centerCoordinate.longitude)), widthInMetres: mapView.getMapWidthInMeters())
         
     }
     
@@ -167,19 +183,19 @@ class MapView: UIView, MKMapViewDelegate,CLLocationManagerDelegate{
     
     //get coordinate of selected location
     func addCoordinates(_ touch: UITouch) {
-        let location = touch.location(in: self.mkMapView)
-        let coordinate = self.mkMapView.convert(location, toCoordinateFrom: self.mkMapView)
+        let location = touch.location(in: self.mKMapView)
+        let coordinate = self.mKMapView.convert(location, toCoordinateFrom: self.mKMapView)
         self.drawingCoordinates.append(NSValue(mkCoordinate: coordinate))
     }
     
     
     func redrawAnnotations(){
         OperationQueue().addOperation({
-            let mapBoundsWidth = Double(self.mkMapView.bounds.size.width)
-            let mapRectWidth:Double = self.mkMapView.visibleMapRect.size.width
+            let mapBoundsWidth = Double(self.mKMapView.bounds.size.width)
+            let mapRectWidth:Double = self.mKMapView.visibleMapRect.size.width
             let scale:Double = mapBoundsWidth / mapRectWidth
-            let annotationArray = self.clusteringManager.clusteredAnnotationsWithinMapRect(self.mkMapView.visibleMapRect, withZoomScale:scale)
-            self.clusteringManager.displayAnnotations(annotationArray, onMapView:self.mkMapView)
+            let annotationArray = self.clusteringManager.clusteredAnnotationsWithinMapRect(self.mKMapView.visibleMapRect, withZoomScale:scale)
+            self.clusteringManager.displayAnnotations(annotationArray, onMapView:self.mKMapView)
         })
     }
     
@@ -205,8 +221,8 @@ class MapView: UIView, MKMapViewDelegate,CLLocationManagerDelegate{
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                   regionWidth, regionWidth)
         centerOfMap = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        mkMapView.setRegion(coordinateRegion, animated: false)
-        lastWidthInMetres = self.mkMapView.getMapWidthInMeters()
+        mKMapView.setRegion(coordinateRegion, animated: false)
+        lastWidthInMetres = self.mKMapView.getMapWidthInMeters()
         //        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
         //            self.mapLoadNotInProgress = true
         //        }
@@ -254,6 +270,10 @@ extension MKMapView {
         //        print(deltaLongitude * latitudeCircumference / 360)
         //        print(deltaLatitude * 40008000 / 360)
     }
+    
+    
+       
+    
     
 }
 

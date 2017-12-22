@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FAE630CC1DA0327A0046EF6D"
-               BuildableName = "Itihasam .app"
-               BlueprintName = "Itihasam "
-               ReferencedContainer = "container:Itihasam .xcodeproj">
+               BuildableName = "Itihasam.app"
+               BlueprintName = "Itihasam"
+               ReferencedContainer = "container:Itihasam.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FAE630E01DA0327A0046EF6D"
-               BuildableName = "Itihasam Tests.xctest"
-               BlueprintName = "Itihasam Tests"
-               ReferencedContainer = "container:Itihasam .xcodeproj">
+               BuildableName = "ItihasamTests.xctest"
+               BlueprintName = "ItihasamTests"
+               ReferencedContainer = "container:Itihasam.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FAE630EB1DA0327A0046EF6D"
-               BuildableName = "Itihasam UITests.xctest"
-               BlueprintName = "Itihasam UITests"
-               ReferencedContainer = "container:Itihasam .xcodeproj">
+               BuildableName = "ItihasamUITests.xctest"
+               BlueprintName = "ItihasamUITests"
+               ReferencedContainer = "container:Itihasam.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FAE630CC1DA0327A0046EF6D"
-            BuildableName = "Itihasam .app"
-            BlueprintName = "Itihasam "
-            ReferencedContainer = "container:Itihasam .xcodeproj">
+            BuildableName = "Itihasam.app"
+            BlueprintName = "Itihasam"
+            ReferencedContainer = "container:Itihasam.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FAE630CC1DA0327A0046EF6D"
-            BuildableName = "Itihasam .app"
-            BlueprintName = "Itihasam "
-            ReferencedContainer = "container:Itihasam .xcodeproj">
+            BuildableName = "Itihasam.app"
+            BlueprintName = "Itihasam"
+            ReferencedContainer = "container:Itihasam.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FAE630CC1DA0327A0046EF6D"
-            BuildableName = "Itihasam .app"
-            BlueprintName = "Itihasam "
-            ReferencedContainer = "container:Itihasam .xcodeproj">
+            BuildableName = "Itihasam.app"
+            BlueprintName = "Itihasam"
+            ReferencedContainer = "container:Itihasam.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

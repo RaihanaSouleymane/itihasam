@@ -101,6 +101,7 @@ class FBClusteringManager : NSObject {
                 }
                 
                 let count = annotations.count
+                print ("count here", count)
                 
                 if count == 1 {
                     clusteredAnnotations += annotations

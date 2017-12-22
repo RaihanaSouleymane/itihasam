@@ -15,11 +15,39 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.11</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1794822860784031</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FacebookAppID</key>
+	<string>1794822860784031</string>
+	<key>FacebookDisplayName</key>
+	<string>Itihasam</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Enable camera access so that you can take pictures, attach them to your article and upload it to Itihasam</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Your current location information will be displayed on the map and be used to identify nearby articles uploaded on Itihasam.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This will allow Itihasam to share photos that you choose from your Photo Library.</string>
+	<key>Privacy - Photo Library Additions Usage Description</key>
+	<string>This will allow Itihasam to share photos that you choose from your Photo Library.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

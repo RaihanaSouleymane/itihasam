@@ -9,7 +9,7 @@
 import XCTest
 @testable import Itihasam
 
-class ConnectionsTests: XCTestCase {
+class ItihasamTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
